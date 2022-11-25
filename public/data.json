@@ -1,0 +1,74 @@
+[
+    {
+      "brand": "iphone",
+      "name": "i phone 11 pro",
+      "sellerName": "arif khan",
+      "picture": "https://images.ctfassets.net/wcfotm6rrl7u/4rQW0bV4gCuVinEN5BaQRm/b6184807e1863b113a7ed82c6a0b645f/nokia-1_4-fjord-front_back-int.png",
+      "duration": "8 days",
+      "location": "Barisal",
+      "resalePrice": 1500,
+      "orginalPrice": 10000,
+      "useTime": "3 years",
+      "postTime": "11:10 pm"
+    },
+    {
+      "brand": "iphone",
+      "name": "iphone pro max",
+      "sellerName": "arif khan",
+      "picture": "https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1650393960.86276248.png",
+      "duration": "8 days",
+      "location": "Barisal",
+      "resalePrice": 1500,
+      "orginalPrice": 10000,
+      "useTime": "3 years",
+      "postTime": "11:10 pm"
+    },
+    {
+      "name": "Samsung 13 max",
+      "brand": "samsung",
+      "sellerName": "arif khan",
+      "picture": "https://image01.realme.net/general/20220829/1661751475307.png",
+      "duration": "8 days",
+      "location": "Barisal",
+      "resalePrice": 1500,
+      "orginalPrice": 10000,
+      "useTime": "3 years",
+      "postTime": "11:10 pm"
+    },
+    {
+      "brand": "samsung",
+      "name": "Samsung extra bold",
+      "sellerName": "arif khan",
+      "picture": "https://images.ctfassets.net/wcfotm6rrl7u/1dmqKJTjaN6HtzSDdP6sTc/57166505c0b829fc89207a6642036488/nokia_G100-nordic_blue-back-us.png",
+      "duration": "8 days",
+      "location": "Barisal",
+      "resalePrice": 1500,
+      "orginalPrice": 10000,
+      "useTime": "3 years",
+      "postTime": "11:10 pm"
+    },
+    {
+      "brand": "vivo",
+      "name": "vivo premium",
+      "sellerName": "arif khan",
+      "picture": "https://images.ctfassets.net/wcfotm6rrl7u/1dmqKJTjaN6HtzSDdP6sTc/57166505c0b829fc89207a6642036488/nokia_G100-nordic_blue-back-us.png",
+      "duration": "8 days",
+      "location": "Barisal",
+      "resalePrice": 1500,
+      "orginalPrice": 10000,
+      "useTime": "3 years",
+      "postTime": "11:10 pm"
+    },
+    {
+      "brand": "vivo",
+      "name": "vivo pro",
+      "sellerName": "arif khan",
+      "picture": "https://image01.realme.net/general/20220829/1661751475307.png",
+      "duration": "8 days",
+      "location": "Barisal",
+      "resalePrice": 1500,
+      "orginalPrice": 10000,
+      "useTime": "3 years",
+      "postTime": "11:10 pm"
+    }
+  ]
