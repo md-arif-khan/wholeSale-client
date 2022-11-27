@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -6,7 +6,8 @@ import { AuthContext } from "../../context/AuthProvider";
 
 
 const SignUp = () => {
-    const {createUser,updateName}=useContext(AuthContext)
+  const [error,setError]=useState('')
+    const {createUser,updateName, googleLogin}=useContext(AuthContext)
   const { register,formState: { errors }, handleSubmit,reset } = useForm();
   const onSubmit = (data) => {
      createUser(data.email,data.password)
@@ -15,20 +16,81 @@ const SignUp = () => {
         updateName({displayName:data.name})
         .then(()=>{
             toast.success('user created successfully')
-            reset()
+            const currentUser={
+              name:data.name,
+              email:data.email,
+              role:data.userType
+            }
+            getUserToken(user.email)
+            fetch('http://localhost:5000/users',{
+              method:'POST',
+              headers:{
+                'content-type':'application/json'
+        
+              },
+              body:JSON.stringify(currentUser)
+        
+            })
+            .then(res=>res.json())
+            .then(data=>{
+              console.log(data)
+            })
+               reset()
         })
-        .catch(error=>console.log(error))
+        .catch(error=>setError(error))
         
      })
      .catch(error=>console.log(error))
   };
-  
+  const handleGoogle=()=>{
+    googleLogin()
+    .then(result=>{
+      const user=result.user;
+     
+      saveUser(user.displayName,user.email)
+      toast.success('User Sign In successfully')
+      console.log(user)
+    })
+    .catch(err=>console.log(err))
+  }
+
+
+  const saveUser=(name,email)=>{
+    const user={name,
+      email,
+      role:'buyer'
+    }
+    fetch('http://localhost:5000/users',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json'
+
+      },
+      body:JSON.stringify(user)
+
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      getUserToken(email)
+      
+    })
+  }
+  const getUserToken=email=>{
+    fetch(`http://localhost:5000/jwt?email=${email}`)
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.accessToken){
+        localStorage.setItem('accessToken',data.accessToken)
+      }
+    })
+  }
   return (
     <div class="bg-white py-6 sm:py-8 lg:py-12">
     <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
       <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">Sign Up</h2>
   
-      <form onSubmit={handleSubmit(onSubmit)} class="max-w-lg border rounded-lg mx-auto">
+      <div className="max-w-lg border rounded-lg mx-auto">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div class="flex flex-col gap-4 p-4 md:p-8">
           <div>
             <label for="name" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Name</label>
@@ -63,7 +125,12 @@ const SignUp = () => {
   
          
   
-          <button class="flex justify-center items-center bg-white hover:bg-gray-100 active:bg-gray-200 border border-gray-300 focus-visible:ring ring-gray-300 text-gray-800 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 gap-2 px-8 py-3">
+          
+        </div>
+        
+      
+      </form>
+      <button onClick={handleGoogle} class="flex justify-center items-center w-full bg-white hover:bg-gray-100 active:bg-gray-200 border border-gray-300 focus-visible:ring ring-gray-300 text-gray-800 text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 gap-2 px-8 py-3">
             <svg class="w-5 h-5 shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M23.7449 12.27C23.7449 11.48 23.6749 10.73 23.5549 10H12.2549V14.51H18.7249C18.4349 15.99 17.5849 17.24 16.3249 18.09V21.09H20.1849C22.4449 19 23.7449 15.92 23.7449 12.27Z" fill="#4285F4" />
               <path d="M12.2549 24C15.4949 24 18.2049 22.92 20.1849 21.09L16.3249 18.09C15.2449 18.81 13.8749 19.25 12.2549 19.25C9.12492 19.25 6.47492 17.14 5.52492 14.29H1.54492V17.38C3.51492 21.3 7.56492 24 12.2549 24Z" fill="#34A853" />
@@ -73,12 +140,11 @@ const SignUp = () => {
   
             Continue with Google
           </button>
-        </div>
-  
-        <div class="flex justify-center items-center bg-gray-100 p-4">
+      <div class="flex justify-center items-center bg-gray-100 p-4 mt-4">
           <p class="text-gray-500 text-sm text-center">Already have an account? <Link to='/login' href="#" class="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 transition duration-100">Login</Link></p>
         </div>
-      </form>
+      </div>
+      
     </div>
   </div>
   );
