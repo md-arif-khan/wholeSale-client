@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 
 const SellerProductRow = ({sellerProduct}) => {
     const {picture,name,location,resalePrice,_id}=sellerProduct;
-    const {data,refetch}=useQuery({
+    const {data:product,refetch}=useQuery({
       queryKey:['sellerProduct'],
       queryFn:async()=>{
         const res=await fetch(`http://localhost:5000/sellerProduct`)
@@ -21,8 +21,8 @@ const SellerProductRow = ({sellerProduct}) => {
       .then(res=>res.json())
       .then(data=>{
         refetch()
-        console.log(data)
         toast.success('Delete successfully')
+       
       })
     }
     const addAdvertisSection=sellerProduct=>{

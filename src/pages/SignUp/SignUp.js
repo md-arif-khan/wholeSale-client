@@ -37,7 +37,7 @@ const SignUp = () => {
               console.log(data)
             })
             toast.success('user created successfully')
-            
+            reset()
 
               
         })
