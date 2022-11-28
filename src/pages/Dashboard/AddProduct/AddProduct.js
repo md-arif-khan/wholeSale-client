@@ -240,7 +240,7 @@ const AddProduct = () => {
               </div>
 
               <button type="submit" className="btn btn-wide block">
-                Wide
+                Submit
               </button>
             </div>
           </fieldset>

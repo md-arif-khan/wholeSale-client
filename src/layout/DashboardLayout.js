@@ -3,6 +3,7 @@ import { Outlet, Link } from 'react-router-dom';
 import Navbar from '../pages/shared/Navbar/Navbar';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../context/AuthProvider';
+import Loading from '../Loading/Loading';
 
 const DashboardLayout = () => {
   const {user}=useContext(AuthContext)
@@ -14,7 +15,9 @@ const DashboardLayout = () => {
         return data;
     }
 })
-console.log(users)
+
+
+
     return (
         <div>
             <Navbar></Navbar>
@@ -30,7 +33,7 @@ console.log(users)
     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
     {
           users?.role==='buyer'&&<>
-               <li><Link to='/dashboard'>My Orders</Link></li>
+               <li><Link to='/dashboard/myproduct'>My Orders</Link></li>
           </>
         }
         {

@@ -15,6 +15,7 @@ const SellerProduct = () => {
     })
     return (
         <div>
+            <h3 className='text-3xl'>My Product</h3>
                       <div className="overflow-x-auto w-full">
   <table className="table w-full">
        <thead>

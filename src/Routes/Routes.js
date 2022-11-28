@@ -58,6 +58,10 @@ const router=createBrowserRouter([
         children:[
             {
                 path:'/dashboard',
+                element:<Dashboard></Dashboard>
+             },
+            {
+                path:'/dashboard/myproduct',
                 element: <MyProduct></MyProduct>   
              },
              {
