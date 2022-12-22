@@ -40,10 +40,11 @@ const AddProduct = () => {
             orginalPrice: data.orginalPrice,
             useTime: data.useTime,
             postTime: currentDate,
-            email:user.email
+            email:user.email,
+            status:'unsold'
           };
          
-          fetch('http://localhost:5000/sellerProduct',{
+          fetch('https://wholesale-server-site.vercel.app/sellerProduct',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

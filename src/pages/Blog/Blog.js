@@ -28,7 +28,7 @@ const Blog = () => {
            <div className="bg-gradient-to-r from-slate-800 to-slate-500 text-white">
 	<div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
 		<div className="flex items-center justify-between">
-			<span className="text-sm dark:text-gray-400">Dec 12, 2022</span>
+			<span className="text-sm dark:text-gray-400">Dec 22, 2022</span>
 			<a rel="noopener noreferrer" href="#" className="px-2 py-1 font-bold rounded dark:bg-violet-400 dark:text-gray-900">Javascript</a>
 		</div>
 		<div className="mt-3">
@@ -49,7 +49,7 @@ const Blog = () => {
            <div className="bg-gradient-to-r from-slate-500 to-slate-800 text-white my-6">
 	<div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
 		<div className="flex items-center justify-between">
-			<span className="text-sm dark:text-gray-400">March 7, 2022</span>
+			<span className="text-sm dark:text-gray-400">March 8, 2022</span>
 			<a rel="noopener noreferrer" href="#" className="px-2 py-1 font-bold rounded dark:bg-violet-400 dark:text-gray-900">Javascript</a>
 		</div>
 		<div className="mt-3">
@@ -82,7 +82,7 @@ const Blog = () => {
 			<div>
 				<a rel="noopener noreferrer" href="#" className="flex items-center">
 					<img src="https://source.unsplash.com/50x50/?portrait" alt="avatar" className="object-cover w-10 h-10 mx-4 rounded-full dark:bg-gray-500" />
-					<span className="hover:underline dark:text-gray-400">Thomas Emav</span>
+					<span className="hover:underline dark:text-gray-400">Thomas Emajan</span>
 				</a>
 			</div>
 		</div>

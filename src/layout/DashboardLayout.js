@@ -10,7 +10,7 @@ const DashboardLayout = () => {
   const {data:users,isLoading,refetch}=useQuery({
     queryKey:['users',user?.email],
     queryFn:async()=>{
-        const res=await fetch(`http://localhost:5000/users?email=${user.email}`)
+        const res=await fetch(`https://wholesale-server-site.vercel.app/users?email=${user.email}`)
         const data=await res.json()
         return data;
     }

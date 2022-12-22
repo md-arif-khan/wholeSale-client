@@ -4,18 +4,18 @@ import { async } from '@firebase/util';
 import toast from 'react-hot-toast';
 
 const SellerProductRow = ({sellerProduct}) => {
-    const {picture,name,location,resalePrice,_id}=sellerProduct;
+    const {picture,name,location,resalePrice,_id,status}=sellerProduct;
     const {data:product,refetch}=useQuery({
       queryKey:['sellerProduct'],
       queryFn:async()=>{
-        const res=await fetch(`http://localhost:5000/sellerProduct`)
+        const res=await fetch(`https://wholesale-server-site.vercel.app/sellerProduct`)
         const data=await res.json()
         return data;
       }
     })
     
     const deleteProduct=id=>{
-      fetch(`http://localhost:5000/deleteProduct/${id}`,{
+      fetch(`https://wholesale-server-site.vercel.app/deleteProduct/${id}`,{
         method:'DELETE'
       })
       .then(res=>res.json())
@@ -26,7 +26,7 @@ const SellerProductRow = ({sellerProduct}) => {
       })
     }
     const addAdvertisSection=sellerProduct=>{
-        fetch('http://localhost:5000/advertise',{
+        fetch('https://wholesale-server-site.vercel.app/advertise',{
           method:'POST',
           headers:{
             'content-type':'application/json'
@@ -67,7 +67,7 @@ const SellerProductRow = ({sellerProduct}) => {
         <td>{resalePrice}</td>
         <th>
           <button onClick={()=>addAdvertisSection(sellerProduct)} className=" btn-active btn btn-sm mx-2">Ads</button>
-          <button className="btn-active btn btn-sm mx-2">Sold</button>
+          <button className="btn-active btn btn-sm mx-2">{status}</button>
           <button  onClick={()=>deleteProduct(_id)} className="btn-active btn btn-sm mx-2">Delete</button>
         </th>
       </tr>

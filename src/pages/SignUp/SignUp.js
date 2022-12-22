@@ -23,7 +23,7 @@ const SignUp = () => {
               role:data.userType
             }
             
-            fetch('http://localhost:5000/users',{
+            fetch('https://wholesale-server-site.vercel.app/users',{
               method:'POST',
               headers:{
                 'content-type':'application/json'
@@ -68,7 +68,7 @@ const SignUp = () => {
       email,
       role:'buyer'
     }
-    fetch('http://localhost:5000/users',{
+    fetch('https://wholesale-server-site.vercel.app/users',{
       method:'POST',
       headers:{
         'content-type':'application/json'
@@ -85,7 +85,7 @@ const SignUp = () => {
   }
 
   const getUserToken=email=>{
-    fetch(`http://localhost:5000/jwt?email=${email}`)
+    fetch(`https://wholesale-server-site.vercel.app/jwt?email=${email}`)
     .then(res=>res.json())
     .then(data=>{
       if(data.accessToken){

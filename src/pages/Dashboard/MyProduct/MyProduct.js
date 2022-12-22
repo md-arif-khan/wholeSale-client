@@ -7,7 +7,7 @@ import ProductRow from './ProductRow';
 const MyProduct = () => {
     const {user}=useContext(AuthContext)
  
-    const uri=`http://localhost:5000/booking?email=${user?.email}`
+    const uri=`https://wholesale-server-site.vercel.app/booking?email=${user?.email}`
     const {data:booking=[],isLoading,refetch}=useQuery({
         queryKey:['booking',user?.email],
         queryFn:async()=>{

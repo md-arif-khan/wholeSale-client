@@ -4,7 +4,8 @@ import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Modal = ({phone}) => {
-    const {resalePrice,name,picture}=phone;
+    const {resalePrice,name,picture,_id}=phone;
+
     const {user}=useContext(AuthContext)
     const handleModal=(event)=>{
         event.preventDefault()
@@ -15,7 +16,7 @@ const Modal = ({phone}) => {
         const price=form.price.value;
         const phone=form.phone.value;
         const location=form.location.value;
-        
+        console.log(_id)
         const productBook={
             name,
             email,
@@ -23,9 +24,11 @@ const Modal = ({phone}) => {
             price,
             phone,
             location,
-            picture
+            picture,
+            
         }
-        fetch('http://localhost:5000/booking',{
+        console.log(productBook)
+        fetch('https://wholesale-server-site.vercel.app/booking',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -34,8 +37,18 @@ const Modal = ({phone}) => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            
             toast.success('Booking successfully')
+            fetch(`https://wholesale-server-site.vercel.app/sellerProduct/${_id}`,{
+                method:'PUT',
+
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+                
+            })
+
         })
            form.reset()
     }
@@ -53,7 +66,7 @@ const Modal = ({phone}) => {
             <input readOnly defaultValue={user.email} name='email' type="text" placeholder="Type here" className="input input-bordered w-full mb-2" />
             <input readOnly defaultValue={name} name='itemName' type="text" placeholder="Type here" className="input input-bordered w-full mb-2" />
             <input  readOnly defaultValue={resalePrice} name='price' type="text" placeholder="Type here" className="input input-bordered w-full mb-4" />
-            <input required name='phone' type="text" placeholder="Your phone number" className="input input-bordered w-full mb-4" />
+            <input  required name='phone' type="text" placeholder="Your phone number" className="input input-bordered w-full mb-4" />
             <input  required name='location' type="text" placeholder="Your location" className="input input-bordered w-full mb-4" />
             {/* <input required htmlFor="my-modal" className='btn btn-wide w-full ' type="submit" value="Submit" /> */}
            

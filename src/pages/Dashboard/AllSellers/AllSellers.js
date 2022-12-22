@@ -9,14 +9,14 @@ const AllSellers = () => {
     const {data:sellers=[],isLoading,refetch}=useQuery({
         queryKey:['sellers'],
         queryFn:async()=>{
-            const res=await fetch('http://localhost:5000/sellers')
+            const res=await fetch('https://wholesale-server-site.vercel.app/sellers')
             const data=await res.json()
             return data;
         }
     })
     
     const handleVerify=email=>{
-        fetch(`http://localhost:5000/verify/${email}`,{
+        fetch(`https://wholesale-server-site.vercel.app/verify/${email}`,{
             method:'PUT'
         })
         .then(res=>res.json())
@@ -30,7 +30,7 @@ const AllSellers = () => {
 
 
 const deleteSeller=id=>{
-    fetch(`http://localhost:5000/deleteSeller/${id}`,{
+    fetch(`https://wholesale-server-site.vercel.app/deleteSeller/${id}`,{
         method:'DELETE'
     })
     .then(res=>res.json())
