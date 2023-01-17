@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AdvertiseProduct from './AdvertiseProduct';
 import axios from 'axios';
+import Modal from '../../Modal/Modal';
 const Advertised = () => {
     const [advertises,setAdvertise]=useState([])
   

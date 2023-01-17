@@ -25,7 +25,8 @@ const ProductCategories = () => {
         }
     ]
     return (
-        <div className=''>
+        <div id="categoryProduct" className=''>
+            <h1 className='text-center text-3xl font-bold mb-5 mt-4'>Products Category</h1>
            <div className='grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-4'>
             {
                 phoneCategory.map(category=><ProductItem category={category}></ProductItem>)

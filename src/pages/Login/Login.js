@@ -36,8 +36,10 @@ const Login = () => {
         <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
           <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">Login</h2>
-      
+            
             <div className='max-w-lg border rounded-lg mx-auto'>
+              <p className='ml-3 text-red-600'>Admin Email: arifkhan346989@gmail.com || Password:111222333</p>
+              <p className='ml-3 text-red-600'>Seller Email:newseller@gmail.com || Password: 444555666</p>
             <form onSubmit={handleSubmit(onSubmit)} class="">
             <div class="flex flex-col gap-4 p-4 md:p-8">
               <div>
@@ -51,11 +53,11 @@ const Login = () => {
               </div>
               
       
-              <button type='submit' class="block bg-gray-800 hover:bg-gray-700 active:bg-gray-600 focus-visible:ring ring-gray-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Sign Up</button>
+              <button type='submit' class="block bg-gray-800 hover:bg-gray-700 active:bg-gray-600 focus-visible:ring ring-gray-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Log In</button>
       
               <div class="flex justify-center items-center relative">
                 <span class="h-px bg-gray-300 absolute inset-x-0"></span>
-                <span class="bg-white text-gray-400 text-sm relative px-4">Sign Up in with social</span>
+                <span class="bg-white text-gray-400 text-sm relative px-4">Sign In in with social</span>
               </div>
       
              

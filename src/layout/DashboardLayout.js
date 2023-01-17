@@ -28,25 +28,25 @@ const DashboardLayout = () => {
      {/* <label  className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
   
   </div> 
-  <div className="drawer-side">
+  <div className="drawer-side text-white bg-[#5154D3]">
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+    <ul className="menu p-4 w-80 ">
     {
           users?.role==='buyer'&&<>
-               <li><Link to='/dashboard/myproduct'>My Orders</Link></li>
+               <li className='font-bold'><Link to='/dashboard/myproduct'>My Orders</Link></li>
           </>
         }
         {
           users?.role==='admin'&&<>
           
-               <li><Link to='/dashboard/allbuyers'>All Buyers</Link></li>
-           <li><Link to='/dashboard/allsellers'>All Sellers</Link></li>
+               <li className='font-bold'><Link to='/dashboard/allbuyers'>All Buyers</Link></li>
+           <li className='font-bold'><Link to='/dashboard/allsellers'>All Sellers</Link></li>
           </>
         }
          {
           users?.role==='seller'&&<>
-              <li><Link to='/dashboard/sellerProduct'>My Product</Link></li>
-              <li><Link to='/dashboard/addproduct'>Add Product</Link></li>
+              <li className='font-bold'><Link to='/dashboard/sellerProduct'>My Product</Link></li>
+              <li className='font-bold'><Link to='/dashboard/addproduct'>Add Product</Link></li>
           </>
         }
       
