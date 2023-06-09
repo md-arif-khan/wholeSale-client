@@ -8,6 +8,8 @@ import OurStory from '../OurStory/OurStory';
 import OurTeam from '../OurTeam/OurTeam';
 import ProductCategories from '../ProductCategories/ProductCategories';
 import TrastedCompani from '../TrastedCompani/TrastedCompani';
+import GrowBusiness from '../GrowBusiness/GrowBusiness';
+import Contact from '../Contact/Contact';
 
 const Home = () => {
     return (
@@ -19,6 +21,8 @@ const Home = () => {
             <Commission></Commission>
             <OurTeam></OurTeam>
             <TrastedCompani></TrastedCompani>
+            <GrowBusiness></GrowBusiness>
+            <Contact></Contact>
             <CustomerReview></CustomerReview>
         </div>
     );

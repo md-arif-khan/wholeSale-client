@@ -38,8 +38,8 @@ const Login = () => {
           <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">Login</h2>
             
             <div className='max-w-lg border rounded-lg mx-auto'>
-              <p className='ml-3 text-red-600'>Admin Email: arifkhan346989@gmail.com || Password:111222333</p>
-              <p className='ml-3 text-red-600'>Seller Email:newseller@gmail.com || Password: 444555666</p>
+              <p className='ml-3 '>Admin Email: <span className='font-bold text-red-600'>arifkhan346989@gmail.com</span> || Password: <span className='font-bold text-red-600'>111222333</span></p>
+              <p className='ml-3 '>Seller Email: <span className='font-bold text-red-600'>arifjoy@gmail.com</span> || Password: <span className='font-bold text-red-600'>0987654321</span></p>
             <form onSubmit={handleSubmit(onSubmit)} class="">
             <div class="flex flex-col gap-4 p-4 md:p-8">
               <div>
